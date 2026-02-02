@@ -46,46 +46,47 @@ const PurchaseSuccessPage = () => {
 				style={{ zIndex: 99 }}
 				numberOfPieces={700}
 				recycle={false}
+                colors={['#6B7447', '#A45A3F', '#E3CDB5', '#D9C7AE']}
 			/>
 
-			<div className='max-w-md w-full bg-gray-800 rounded-lg shadow-xl overflow-hidden relative z-10'>
+			<div className='max-w-md w-full bg-white border border-neutral-greige/20 rounded-sm shadow-xl overflow-hidden relative z-10'>
 				<div className='p-6 sm:p-8'>
 					<div className='flex justify-center'>
-						<CheckCircle className='text-emerald-400 w-16 h-16 mb-4' />
+						<CheckCircle className='text-primary-olive w-16 h-16 mb-4' />
 					</div>
-					<h1 className='text-2xl sm:text-3xl font-bold text-center text-emerald-400 mb-2'>
+					<h1 className='text-2xl sm:text-3xl font-bold text-center text-primary-olive mb-2 font-serif'>
 						Purchase Successful!
 					</h1>
 
-					<p className='text-gray-300 text-center mb-2'>
+					<p className='text-accent-oliveDark text-center mb-2'>
 						Thank you for your order. {"We're"} processing it now.
 					</p>
-					<p className='text-emerald-400 text-center text-sm mb-6'>
+					<p className='text-primary-terracotta text-center text-sm mb-6'>
 						Check your email for order details and updates.
 					</p>
-					<div className='bg-gray-700 rounded-lg p-4 mb-6'>
+					<div className='bg-neutral-background/20 rounded-sm p-4 mb-6 border border-neutral-greige/10'>
 						<div className='flex items-center justify-between mb-2'>
-							<span className='text-sm text-gray-400'>Order number</span>
-							<span className='text-sm font-semibold text-emerald-400'>#12345</span>
+							<span className='text-sm text-neutral-greige'>Order number</span>
+							<span className='text-sm font-semibold text-primary-olive'>#12345</span>
 						</div>
 						<div className='flex items-center justify-between'>
-							<span className='text-sm text-gray-400'>Estimated delivery</span>
-							<span className='text-sm font-semibold text-emerald-400'>3-5 business days</span>
+							<span className='text-sm text-neutral-greige'>Estimated delivery</span>
+							<span className='text-sm font-semibold text-primary-olive'>3-5 business days</span>
 						</div>
 					</div>
 
 					<div className='space-y-4'>
 						<button
-							className='w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2 px-4
-             rounded-lg transition duration-300 flex items-center justify-center'
+							className='w-full bg-primary-olive hover:bg-accent-oliveDark text-white font-bold py-3 px-4
+             rounded-sm transition duration-300 flex items-center justify-center uppercase tracking-widest text-xs'
 						>
 							<HandHeart className='mr-2' size={18} />
 							Thanks for trusting us!
 						</button>
 						<Link
 							to={"/"}
-							className='w-full bg-gray-700 hover:bg-gray-600 text-emerald-400 font-bold py-2 px-4 
-            rounded-lg transition duration-300 flex items-center justify-center'
+							className='w-full bg-neutral-background/20 hover:bg-neutral-background/40 text-primary-olive font-bold py-3 px-4 
+            rounded-sm transition duration-300 flex items-center justify-center uppercase tracking-widest text-xs'
 						>
 							Continue Shopping
 							<ArrowRight className='ml-2' size={18} />

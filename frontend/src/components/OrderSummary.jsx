@@ -5,9 +5,8 @@ import { MoveRight } from "lucide-react";
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "../lib/axios";
 
-const stripePromise = loadStripe(
-	"pk_test_51KZYccCoOZF2UhtOwdXQl3vcizup20zqKqT9hVUIsVzsdBrhqbUI2fE0ZdEVLdZfeHjeyFXtqaNsyCJCmZWnjNZa00PzMAjlcL"
-);
+// Use environment variable instead of hardcoded key
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY || "pk_test_your_publishable_key_here");
 
 const OrderSummary = () => {
 	const { total, subtotal, coupon, isCouponApplied, cart } = useCartStore();
@@ -36,42 +35,42 @@ const OrderSummary = () => {
 
 	return (
 		<motion.div
-			className='space-y-4 rounded-lg border border-gray-700 bg-gray-800 p-4 shadow-sm sm:p-6'
+			className='space-y-4 rounded-sm border border-neutral-greige/20 bg-white p-4 shadow-sm sm:p-6'
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
 			transition={{ duration: 0.5 }}
 		>
-			<p className='text-xl font-semibold text-emerald-400'>Order summary</p>
+			<p className='text-sm font-bold uppercase tracking-widest text-primary-olive mb-4'>Order summary</p>
 
 			<div className='space-y-4'>
 				<div className='space-y-2'>
 					<dl className='flex items-center justify-between gap-4'>
-						<dt className='text-base font-normal text-gray-300'>Original price</dt>
-						<dd className='text-base font-medium text-white'>${formattedSubtotal}</dd>
+						<dt className='text-base font-normal text-neutral-greige'>Original price</dt>
+						<dd className='text-base font-medium text-accent-oliveDark'>${formattedSubtotal}</dd>
 					</dl>
 
 					{savings > 0 && (
 						<dl className='flex items-center justify-between gap-4'>
-							<dt className='text-base font-normal text-gray-300'>Savings</dt>
-							<dd className='text-base font-medium text-emerald-400'>-${formattedSavings}</dd>
+							<dt className='text-base font-normal text-neutral-greige'>Savings</dt>
+							<dd className='text-base font-medium text-primary-olive'>-${formattedSavings}</dd>
 						</dl>
 					)}
 
 					{coupon && isCouponApplied && (
 						<dl className='flex items-center justify-between gap-4'>
-							<dt className='text-base font-normal text-gray-300'>Coupon ({coupon.code})</dt>
-							<dd className='text-base font-medium text-emerald-400'>-{coupon.discountPercentage}%</dd>
+							<dt className='text-base font-normal text-neutral-greige'>Coupon ({coupon.code})</dt>
+							<dd className='text-base font-medium text-primary-olive'>-{coupon.discountPercentage}%</dd>
 						</dl>
 					)}
-					<dl className='flex items-center justify-between gap-4 border-t border-gray-600 pt-2'>
-						<dt className='text-base font-bold text-white'>Total</dt>
-						<dd className='text-base font-bold text-emerald-400'>${formattedTotal}</dd>
+					<dl className='flex items-center justify-between gap-4 border-t border-neutral-greige/20 pt-2'>
+						<dt className='text-base font-bold text-accent-oliveDark'>Total</dt>
+						<dd className='text-base font-bold text-primary-olive'>${formattedTotal}</dd>
 					</dl>
 				</div>
 
 				<motion.button
-					className='flex w-full items-center justify-center rounded-lg bg-emerald-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-emerald-700 focus:outline-none focus:ring-4 focus:ring-emerald-300'
-					whileHover={{ scale: 1.05 }}
+					className='flex w-full items-center justify-center rounded-sm bg-primary-olive px-5 py-3 text-xs font-bold uppercase tracking-widest text-white hover:bg-accent-oliveDark focus:outline-none focus:ring-4 focus:ring-primary-olive/50'
+					whileHover={{ scale: 1.02 }}
 					whileTap={{ scale: 0.95 }}
 					onClick={handlePayment}
 				>
@@ -79,10 +78,10 @@ const OrderSummary = () => {
 				</motion.button>
 
 				<div className='flex items-center justify-center gap-2'>
-					<span className='text-sm font-normal text-gray-400'>or</span>
+					<span className='text-sm font-normal text-neutral-greige'>or</span>
 					<Link
 						to='/'
-						className='inline-flex items-center gap-2 text-sm font-medium text-emerald-400 underline hover:text-emerald-300 hover:no-underline'
+						className='inline-flex items-center gap-2 text-sm font-medium text-primary-olive underline hover:text-accent-oliveDark hover:no-underline'
 					>
 						Continue Shopping
 						<MoveRight size={16} />
