@@ -89,7 +89,7 @@ const Navbar = () => {
 					<div className="flex justify-center gap-8 mt-4 text-xs font-semibold uppercase tracking-widest text-accent-brownMuted/80">
 						<Link to="/" className="hover:text-primary-olive transition border-b-2 border-transparent hover:border-primary-olive pb-1">Knanfe Home</Link>
 						<Link to="/category/fashion" className="hover:text-primary-olive transition border-b-2 border-transparent hover:border-primary-olive pb-1">Knanfe Fashion</Link>
-						<Link to="/category/kids" className="hover:text-primary-olive transition border-b-2 border-transparent hover:border-primary-olive pb-1">Knanfe Kids</Link>
+						<Link to="/category/glasses" className="hover:text-primary-olive transition border-b-2 border-transparent hover:border-primary-olive pb-1">Knanfe Kids</Link>
 					</div>
 				</div>
 			</header>
