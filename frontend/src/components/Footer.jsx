@@ -9,9 +9,9 @@ const Footer = () => {
 					<div>
 						<h3 className='text-sm font-bold uppercase tracking-widest mb-4'>Shop</h3>
 						<ul className='space-y-2 text-sm opacity-80'>
-							<li><a href='#' className='hover:text-primary-olive transition'>Knanfe Fashion</a></li>
-							<li><a href='#' className='hover:text-primary-olive transition'>Knanfe Home & Body</a></li>
-							<li><a href='#' className='hover:text-primary-olive transition'>Knanfe Kids</a></li>
+							<li><a href='#' className='hover:text-primary-olive transition'>Esta Fashion</a></li>
+							<li><a href='#' className='hover:text-primary-olive transition'>Esta Home & Body</a></li>
+							<li><a href='#' className='hover:text-primary-olive transition'>Esta Kids</a></li>
 							<li><a href='#' className='hover:text-primary-olive transition'>Search</a></li>
 						</ul>
 					</div>
@@ -65,7 +65,7 @@ const Footer = () => {
 
                 {/* Bottom Bar */}
                 <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-neutral-background/10 text-xs opacity-60">
-                    <p>© 2026, Knanfe</p>
+					<p>© 2026, Esta</p>
                     <div className="mt-4 md:mt-0 border border-neutral-background/30 px-3 py-1 rounded flex items-center gap-2">
                         <span>Nigeria (NGN) ₦</span>
                         <span>▼</span>

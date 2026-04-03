@@ -51,13 +51,13 @@ const HomePage = () => {
 	return (
     <div className="relative min-h-screen text-accent-oliveDark overflow-hidden pb-10">
       {/* Hero Section */}
-      <div className="relative h-[1000px] w-full overflow-hidden">
+      <div className="relative h-screen md:h-[1000px] w-full overflow-hidden">
         <img
           src="https://www.eventdesignbybe.com/wp-content/uploads/2024/06/Beautiful-Aso-Ebi-Bride-with-Bridesmaids.jpg"
           alt="Aso-Ebi & Occasions"
           className="w-full h-full object-cover object-top"
         />
-        <div className="absolute inset-x-0 bottom-[300px] flex flex-col items-center justify-center text-white text-center px-4">
+        <div className="absolute max-md:top-[45%] md:inset-x-0 md:bottom-[300px] flex flex-col items-center justify-center text-white text-center px-4">
           <p className="text-xs font-bold tracking-[0.2em] mb-4 uppercase drop-shadow-md">
             Discover
           </p>
@@ -110,20 +110,20 @@ const HomePage = () => {
       )}
 
       {/* Section 2: Promotional Banner (Christmas Drop) */}
-      <section className="relative h-[600px] w-full my-16 bg-neutral-200">
+      <section className="relative h-[600px] w-full my-16 bg-transparent">
         <div className="relative h-full w-full flex flex-col md:flex-row">
           <div className="w-full md:w-1/2 h-full relative">
-            <img
-              src="https://images.unsplash.com/photo-1545959734-7548b13df222?q=80&w=1000&auto=format&fit=crop"
+            {/* <img
+              src=""
               alt="Model"
-              className="w-full h-full object-cover"
-            />
+              className="w-full h-full object-cover object-top"
+            /> */}
             <div className="absolute inset-0 flex flex-col justify-center px-12 md:px-24 text-white bg-black/20 md:bg-transparent md:text-accent-brownMuted">
               <p className="text-xs font-bold tracking-[0.2em] mb-4 uppercase">
-                Knanfe
+                Esta
               </p>
               <h2 className="text-4xl md:text-5xl font-serif mb-6 text-white drop-shadow-md">
-                Christmas Drop
+                Everyday Chic
               </h2>
               <HomePageButton to="/category/fashion" className="w-max">
                 Shop Now
@@ -132,9 +132,9 @@ const HomePage = () => {
           </div>
           <div className="hidden md:block w-1/2 h-full">
             <img
-              src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1000&auto=format&fit=crop"
+              src="/hero.webp"
               alt="Model 2"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
             />
           </div>
         </div>
@@ -144,7 +144,7 @@ const HomePage = () => {
       <div className="bg-neutral-background">
         {renderProductGrid(
           "Just In",
-          "Knanfe Fashion",
+          "Esta Everyday Chic",
           products.length > 0
             ? [...products].reverse()
             : [
@@ -181,25 +181,25 @@ const HomePage = () => {
         <div className="grid grid-cols-1 md:grid-cols-2">
           <div className="h-[500px] overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1616486338812-3dadae4b4f9d?q=80&w=1000&auto=format&fit=crop"
+              src="https://i.pinimg.com/originals/e3/87/31/e38731012b6484952eaf29aeb506d3b4.jpg"
               alt="Home"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-top"
             />
           </div>
-          <div className="h-[500px] bg-primary-terracotta flex flex-col justify-center items-center text-center p-12 text-white relative overflow-hidden">
-            <img
+          <div className="h-[500px] bg-transparent flex flex-col justify-center items-center text-center p-12 text-white relative overflow-hidden">
+            {/* <img
               src="https://images.unsplash.com/photo-1615750106983-164971c0c169?q=80&w=1000&auto=format&fit=crop"
               className="absolute inset-0 w-full h-full object-cover opacity-60"
               alt="bg"
-            />
+            /> */}
             <div className="relative z-10">
               <p className="text-xs font-bold tracking-[0.2em] mb-4 uppercase">
-                Knanfe
+                Esta
               </p>
-              <h2 className="text-4xl md:text-5xl font-serif mb-6">Home</h2>
-              <HomePageButton to="/category/home">
-                Shop Now
-              </HomePageButton>
+              <h2 className="text-4xl md:text-5xl font-serif mb-6">
+                Bridal & Luxury
+              </h2>
+              <HomePageButton to="/category/home">Shop Now</HomePageButton>
             </div>
           </div>
         </div>
@@ -210,7 +210,7 @@ const HomePage = () => {
         <div className="container mx-auto px-4 mb-8">
           <div className="text-center mb-8">
             <p className="text-xs font-bold tracking-[0.2em] mb-2 uppercase text-accent-brownMuted opacity-60">
-              Knanfe Kids
+              Esta Bridal & Luxury
             </p>
             <h2 className="text-3xl font-serif text-accent-brownMuted uppercase tracking-widest">
               Just In
@@ -271,9 +271,7 @@ const HomePage = () => {
             ))}
           </div>
           <div className="text-center mt-12">
-            <HomePageButton to="/category/kids">
-              View All
-            </HomePageButton>
+            <HomePageButton to="/category/kids">View All</HomePageButton>
           </div>
         </div>
       </div>
