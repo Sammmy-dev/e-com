@@ -2,6 +2,19 @@ import { redis } from "../lib/redis.js";
 import cloudinary from "../lib/cloudinary.js";
 import Product from "../models/product.model.js";
 
+const CATEGORY_ALIASES = {
+	asoebi: ["asoebi", "occasions"],
+	chic: ["chic", "fashion", "jeans", "t-shirts", "shoes", "glasses", "jackets", "bags"],
+	bridal: ["bridal", "home", "suits"],
+};
+
+const normalizeCategory = (category) => {
+	if (!category) return null;
+	const normalizedCategory = category.toLowerCase().trim();
+
+	return Object.entries(CATEGORY_ALIASES).find(([, aliases]) => aliases.includes(normalizedCategory))?.[0] || null;
+};
+
 export const getAllProducts = async (req, res) => {
 	try {
 		const products = await Product.find({}); // find all products
@@ -42,6 +55,14 @@ export const getFeaturedProducts = async (req, res) => {
 export const createProduct = async (req, res) => {
 	try {
 		const { name, description, price, image, category } = req.body;
+		const normalizedCategory = normalizeCategory(category);
+
+		if (!normalizedCategory) {
+			return res.status(400).json({
+				message: "Invalid category",
+				error: "Category must be one of: asoebi, chic, bridal",
+			});
+		}
 
 		let cloudinaryResponse = null;
 
@@ -54,7 +75,7 @@ export const createProduct = async (req, res) => {
 			description,
 			price,
 			image: cloudinaryResponse?.secure_url ? cloudinaryResponse.secure_url : "",
-			category,
+			category: normalizedCategory,
 		});
 
 		res.status(201).json(product);
@@ -118,7 +139,16 @@ export const getRecommendedProducts = async (req, res) => {
 export const getProductsByCategory = async (req, res) => {
 	const { category } = req.params;
 	try {
-		const products = await Product.find({ category });
+		const normalizedCategory = normalizeCategory(category);
+
+		if (!normalizedCategory) {
+			return res.status(400).json({
+				message: "Invalid category",
+				error: "Category must be one of: asoebi, chic, bridal",
+			});
+		}
+
+		const products = await Product.find({ category: { $in: CATEGORY_ALIASES[normalizedCategory] } });
 		res.json({ products });
 	} catch (error) {
 		console.log("Error in getProductsByCategory controller", error.message);

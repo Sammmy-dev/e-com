@@ -5,9 +5,9 @@ const BASE_CLASSES =
 
 const VARIANT_CLASSES = {
 	hero:
-		"border-white/70 bg-white/90 text-primary-olive shadow-[0_18px_45px_rgba(0,0,0,0.18)] backdrop-blur-sm hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_24px_55px_rgba(0,0,0,0.24)] focus:outline-none focus:ring-2 focus:ring-white/80 focus:ring-offset-2 focus:ring-offset-transparent",
+		"border-white/70 bg-white/90 text-primary-olive shadow-[0_18px_45px_rgba(0,0,0,0.18)] backdrop-blur-sm hover:bg-white hover:shadow-[0_24px_55px_rgba(0,0,0,0.24)] focus:outline-none focus:ring-2 focus:ring-white/80 focus:ring-offset-2 focus:ring-offset-transparent",
 	olive:
-		"border-accent-oliveDark bg-accent-oliveDark text-white shadow-[0_16px_35px_rgba(78,90,55,0.24)] hover:-translate-y-0.5 hover:border-primary-olive hover:bg-primary-olive hover:shadow-[0_22px_40px_rgba(78,90,55,0.3)] focus:outline-none focus:ring-2 focus:ring-primary-olive/40 focus:ring-offset-2 focus:ring-offset-transparent",
+		"border-accent-oliveDark bg-accent-oliveDark text-white shadow-[0_16px_35px_rgba(78,90,55,0.24)] hover:border-primary-olive hover:bg-primary-olive hover:shadow-[0_22px_40px_rgba(78,90,55,0.3)] focus:outline-none focus:ring-2 focus:ring-primary-olive/40 focus:ring-offset-2 focus:ring-offset-transparent",
 };
 
 const SIZE_CLASSES = {

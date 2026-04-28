@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 
 import HomePage from "./pages/HomePage";
 import SignUpPage from "./pages/SignUpPage";
@@ -20,6 +20,8 @@ import PurchaseCancelPage from "./pages/PurchaseCancelPage";
 function App() {
 	const { user, checkAuth, checkingAuth } = useUserStore();
 	const { getCartItems } = useCartStore();
+	const location = useLocation();
+	const isHomePage = location.pathname === "/";
 	useEffect(() => {
 		checkAuth();
 	}, [checkAuth]);
@@ -34,7 +36,7 @@ function App() {
 
 	return (
 		<div className='min-h-screen bg-neutral-background text-accent-oliveDark relative overflow-hidden font-sans flex flex-col'>
-			<div className='relative z-50 pt-20 flex-grow'>
+			<div className={`relative z-50 flex-grow ${isHomePage ? "pt-0" : "pt-24 md:pt-28"}`}>
 				<Navbar />
 				<Routes>
 					<Route path='/' element={<HomePage />} />

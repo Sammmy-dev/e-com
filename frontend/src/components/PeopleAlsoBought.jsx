@@ -26,9 +26,10 @@ const PeopleAlsoBought = () => {
 	if (isLoading) return <LoadingSpinner />;
 
 	return (
-		<div className='mt-8'>
-			<h3 className='text-2xl font-bold text-primary-olive font-serif'>People also bought</h3>
-			<div className='mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg: grid-col-3'>
+		<div className='mt-8 rounded-[2rem] border border-white/60 bg-white/80 p-5 shadow-[0_18px_50px_rgba(0,0,0,0.08)] backdrop-blur-sm md:p-6'>
+			<p className='text-[11px] font-bold uppercase tracking-[0.24em] text-accent-brownMuted/60'>Recommendations</p>
+			<h3 className='mt-2 font-serif text-3xl uppercase tracking-[0.12em] text-accent-brownMuted'>People Also Bought</h3>
+			<div className='mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3'>
 				{recommendations.map((product) => (
 					<ProductCard key={product._id} product={product} />
 				))}

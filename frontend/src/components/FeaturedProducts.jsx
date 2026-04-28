@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { ShoppingCart, ChevronLeft, ChevronRight } from "lucide-react";
 import { useCartStore } from "../stores/useCartStore";
+import { useCurrencyStore } from "../stores/useCurrencyStore";
+import { formatCurrency } from "../lib/currency";
 
 const FeaturedProducts = ({ featuredProducts }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [itemsPerPage, setItemsPerPage] = useState(4);
 
 	const { addToCart } = useCartStore();
+	const { currency } = useCurrencyStore();
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -55,7 +58,7 @@ const FeaturedProducts = ({ featuredProducts }) => {
 										<div className='p-4'>
 											<h3 className='text-lg font-semibold mb-2 text-primary-olive'>{product.name}</h3>
 											<p className='text-accent-brownMuted font-medium mb-4'>
-												${product.price.toFixed(2)}
+												{formatCurrency(product.price, currency)}
 											</p>
 											<button
 												onClick={() => addToCart(product)}
