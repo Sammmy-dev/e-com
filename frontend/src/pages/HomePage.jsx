@@ -102,7 +102,7 @@ const HomePage = () => {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {items.slice(0, 4).map((product, idx) => (
               <Link to={itemTo} key={product._id || idx} className="group cursor-pointer">
-                <div className="overflow-hidden rounded-[1.5rem] border border-accent-brownMuted/10 bg-white/70 p-3 shadow-[0_18px_45px_rgba(0,0,0,0.08)] transition duration-500 hover:shadow-[0_24px_55px_rgba(0,0,0,0.12)]">
+                <div className="overflow-hidden rounded-[1.5rem] border border-accent-brownMuted/10 bg-white/70 p-3 shadow-[0_18px_45px_rgba(0,0,0,0.08)] transition duration-500 hover:-translate-y-1 hover:shadow-[0_24px_55px_rgba(0,0,0,0.12)]">
                   <div className="relative aspect-[3/4] overflow-hidden rounded-[1.1rem] bg-neutral-200">
                     <img
                       src={product.image || "/placeholder.jpg"}
@@ -172,9 +172,6 @@ const HomePage = () => {
                 >
                   Shop Collection
                 </HomePageButton>
-                <p className="text-xs font-medium uppercase tracking-[0.24em] text-white/75">
-                  Ready-to-wear, accessories, and occasion edits
-                </p>
               </div>
             </div>
 
